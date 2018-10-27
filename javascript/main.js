@@ -7,9 +7,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
-var player;
+var YTplayer;
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
+  YTplayer = new YT.Player('YTplayer', {
     height: '630',
     width: '1120',
     videoId: 'PgCTDV4EyP4',
@@ -43,3 +43,42 @@ function onPlayerStateChange(event) {
 function stopVideo() {
   player.stopVideo();
 }
+
+//fonction pour connaitre le timing de la vidéo
+$('button').click(function() {
+    console.log(YTplayer.getCurrentTime())
+  })
+
+// //le game
+
+// //on crée une fonction qui lance la question, avec le trigger temps=xxsec
+
+var currentTime = 0;
+// console.log(currentTime)
+
+function lancerJeu(){
+if((YTplayer.getCurrentTime())==5){
+    console.log("currentTime=5secondes");
+}
+}
+
+
+// //on fait une fonction qui permet de faire apparaitre la question
+// function appearQuestion(){
+// console.log("la fonction appearQuestion est appelée");
+// }
+
+
+
+
+// //on crée une classe pour les joueurs
+// function Player() {
+//     this.name = 'name';
+//     this.score = 0 ;
+//   }
+
+
+
+
+
+

@@ -5,17 +5,18 @@ body {
     background-color:#FFB6C4;
 }
 
-#player{
+#YTplayer{
     display: block;
-    margin: 0 0 0 150px; 
+    margin: 150px 0 0 100px; 
     float:left;  
 }
 
 #scorecard{
     display: block;
     float:left; 
-    width:300px;
+    width:350px;
     height:125px;
+    margin-top: 150px;
     border-top-right-radius:25px;
     border-bottom-right-radius:25px;
     float:left; 
@@ -48,3 +49,64 @@ body {
     font-size: 20px;
     font-weight:bold;
 }
+
+.questionCard{
+    display:block;
+    width:350px;
+    height:600px;
+    float:right;
+    border-top-right-radius:25px;
+    border-top-left-radius:25px;
+    background-color: #131E6E;
+}
+
+.slide-up
+{
+    bottom: 0px !important;
+}
+
+.slide-down
+{
+    bottom: -600px !important;
+}
+
+#question{
+    color: white;
+    text-align:left;
+    margin-left:5px;
+    margin-right:5px;
+    font-size: 25px;
+    font-weight:bold;
+}
+
+.answerButton{
+    display: block;
+    margin:0 auto;
+    width:300px;
+    height:60px;
+    margin-top: 12.5px;
+    border-radius:30px; 
+    background-color: #FFB6C4;
+text-align:left;
+}
+
+.answerButton p{
+vertical-align:middle;
+margin-left:10px;
+color:white;
+font-size: 20px;
+    font-weight:normal;
+
+}
+
+#timer{
+    color:yellowgreen;
+    text-align:center;
+    width:50px;
+    height:50px;
+    margin:0 auto;
+    font-size: 35px;
+    font-weight:bold;
+}
+
+

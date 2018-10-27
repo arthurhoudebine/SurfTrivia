@@ -6,18 +6,18 @@
   </head>
 
   <body>
-    <header>
-      <h1>xxxx</h1>
-      <p class="description">xxxxxx</p>
-    </header>
 
-<!--Div contenant le player youtube-->
-<div id="player"></div>
+<button>Get Time</button>
+    <!--Div contenant le player youtube-->
+<div id="YTplayer"></div>
 
 <!--Div contenant la scorecard-->
 <div id="scorecard">
 <h1 class="score">Scores :</h1>
 
+<!--Div contenant le display des scores-->
+
+<div id="scoreDisplay">
 <span class="lePlayer" id="player1">Player 1</span>
 <span class="leScore" id="score1">0</span>
 <span class="leScore">-</span>
@@ -25,7 +25,22 @@
 <span class="lePlayer" id="player2">Player 2</span>
 </div>
 
+</div>
 
+<!--Div contenant la question card-->
+<div class="questionCard slide-down">
+    <!--Div contenant le timer-->
+    <div id="timer"></div>
+    <!--Div contenant la question et les 4 boutons de réponse-->
+ <h1 id="question">What is John John Florence's first name?</h1>
+ <div class="answerButton" id="answer1"><p>John</p></div>
+<div class="answerButton" id="answer2"><p>John John</p></div>
+<div class="answerButton" id="answer3"><p>Florence</p></div>
+<div class="answerButton" id="answer4"><p>He doesn't have one</p></div>
+</div>
+
+
+<script src="javascript/jquery.js"></script>
 <script src="javascript/main.js"></script>
 </body>
 </html>
