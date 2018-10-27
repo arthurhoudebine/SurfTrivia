@@ -56,11 +56,13 @@ $('button').click(function() {
 var currentTime = 0;
 // console.log(currentTime)
 
-function lancerJeu(){
-if((YTplayer.getCurrentTime())==5){
-    console.log("currentTime=5secondes");
-}
-}
+
+//FONCTION LANCERJEU NE FONCTIONNE PAS
+// function lancerJeu(){
+// if((YTplayer.getCurrentTime())==5){
+//     console.log("currentTime=5secondes");
+// }
+// }
 
 
 // //on fait une fonction qui permet de faire apparaitre la question
