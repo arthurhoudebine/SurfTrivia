@@ -44,10 +44,7 @@ function stopVideo() {
   player.stopVideo();
 }
 
-//fonction pour connaitre le timing de la vidéo
-$('button').click(function() {
-    console.log(YTplayer.getCurrentTime())
-  })
+
 
 // //le game
 

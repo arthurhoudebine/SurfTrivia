@@ -17,6 +17,7 @@ body {
     width:350px;
     height:125px;
     margin-top: 150px;
+    margin-bottom: 150px;
     border-top-right-radius:25px;
     border-bottom-right-radius:25px;
     float:left; 
@@ -50,24 +51,17 @@ body {
     font-weight:bold;
 }
 
-.questionCard{
+#questionId{
     display:block;
     width:350px;
-    height:600px;
+    height:0px;
     float:right;
     border-top-right-radius:25px;
     border-top-left-radius:25px;
     background-color: #131E6E;
-}
-
-.slide-up
-{
-    bottom: 0px !important;
-}
-
-.slide-down
-{
-    bottom: -600px !important;
+    margin-right:100px;
+    overflow:hidden;
+    bottom:0px;
 }
 
 #question{
@@ -78,6 +72,8 @@ body {
     font-size: 25px;
     font-weight:bold;
 }
+
+
 
 .answerButton{
     display: block;
