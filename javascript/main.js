@@ -28,7 +28,7 @@ function onYouTubeIframeAPIReady() {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-  event.target.playVideo();
+  //event.target.playVideo();
 }
 
 // 5. The API calls this function when the player's state changes.
@@ -40,9 +40,32 @@ function onPlayerStateChange(event) {
     done = true;
   }
 }
+
 function stopVideo() {
   player.stopVideo();
 }
+
+
+//on initialise le timer
+var myTimer = 0;
+
+function timer(){
+  myTimer +=1
+  console.log(myTimer);
+}
+
+//fonction qui permet de commencer le jeu après avoir appuyé sur le bouton Start Game
+//cette fonction démarre aussi un timer qui nous servira de fil conducteur tout le long du jeu
+function main() {
+  console.log("le joueur a cliqué sur le boutton Start Game!")
+  document.getElementById("overlay").style.display = "none";
+  YTplayer.playVideo();
+  console.log("le jeu a démarré")
+  timer();
+  setInterval(timer,1000);//On appelle le timer toutes les secondes
+
+}
+
 
 
 
