@@ -17,6 +17,21 @@ $('button').click(function() {
     slideUp('questionId');
   })
 
+  //fonction qui lance le timer
+function lancerTimer(){
+  var countdownNumberEl = document.getElementById('countdown-number');
+  var countdown = 10;
+  
+  countdownNumberEl.textContent = countdown;
+  
+  setInterval(function() {
+    countdown = --countdown <= 0 ? 10 : countdown;
+  
+    countdownNumberEl.textContent = countdown;
+  }, 1000);
+  }
+  
+
 
 
 

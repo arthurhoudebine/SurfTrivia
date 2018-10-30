@@ -30,7 +30,13 @@
 <!--Div contenant la question card-->
 <div class = "questionCard" id="questionId">
     <!--Div contenant le timer-->
-    <div id="timer"></div>
+      <div id="countdown">
+        <div id="countdown-number"></div>
+        <svg>
+          <circle r="18" cx="20" cy="20"></circle>
+        </svg>
+      </div>
+      
     <!--Div contenant la question et les 4 boutons de réponse-->
  <h1 id="question">What is John John Florence's first name?</h1>
  <div class="answerButton" id="answer1"><p>John</p></div>
@@ -76,6 +82,7 @@
     text-align:left;
     margin-left:30px;
     margin-right:30px;
+    margin-bottom:30px;
     line-height: 80%;
 
 }
@@ -86,7 +93,7 @@ color:	rgb(230,230,250);
 
 </style>
 
-<div id="overlay" onclick="main()">
+<div id="overlay" onclick="startGame()">
   <a id="startButton">Start<br>Game.</a>
 </div>
 

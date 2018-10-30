@@ -95,14 +95,49 @@ font-size: 20px;
 
 }
 
-#timer{
-    color:yellowgreen;
-    text-align:center;
-    width:50px;
-    height:50px;
-    margin:0 auto;
-    font-size: 35px;
-    font-weight:bold;
-}
+#countdown {
+    position: relative;
+    margin: 0 auto;
+    margin-top:10px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+  }
+  
+  #countdown-number {
+    color: white;
+    display: inline-block;
+    line-height: 40px;
+  }
+  
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+  }
+  
+  svg circle {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 4px;
+    stroke: #FFB6C4;
+    fill: none;
+    animation: countdown 10s linear infinite forwards;
+  }
+  
+  @keyframes countdown {
+    from {
+      stroke-dashoffset: 0px;
+    }
+    to {
+      stroke-dashoffset: 113px;
+    }
+  }
+
+
 
 
