@@ -83,16 +83,25 @@ body {
     margin-top: 12.5px;
     border-radius:30px; 
     background-color: #FFB6C4;
-text-align:left;
+    text-align:left;
+    padding-left:30px;
+    border-style:solid;
+    border-width: 3px;
+    border-color:white;
 }
 
-.answerButton p{
-vertical-align:middle;
-margin-left:10px;
+.answerText {
+display:inline;
+margin-left:20px;
 color:white;
 font-size: 20px;
-    font-weight:normal;
-
+font-weight:normal;
+margin: 0 auto;
+padding: 0;
+display: inline-block;
+line-height: 50px;
+text-align: center;
+font-weight:bold;
 }
 
 #countdown {
@@ -126,7 +135,7 @@ font-size: 20px;
     stroke-width: 4px;
     stroke: #FFB6C4;
     fill: none;
-    animation: countdown 10s linear infinite forwards;
+    animation: countdown 1s linear infinite forwards;
   }
   
   @keyframes countdown {

@@ -24,14 +24,16 @@ function lancerTimer(){
   
   countdownNumberEl.textContent = countdown;
   
-  setInterval(function() {
-    countdown = --countdown <= 0 ? 10 : countdown;
-  
+  var countdownInt = setInterval(function() {
+    countdown--;
     countdownNumberEl.textContent = countdown;
+    if (countdown === 0) {
+      clearInterval(countdownInt);
+      slideDown('questionId');
+    }
   }, 1000);
   }
   
-
 
 
 
