@@ -3,6 +3,7 @@
   <head>
     <title>Surf Trivia</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="icon" href="favicon.ico" />
   </head>
 
   <body>
@@ -13,16 +14,12 @@
 
 <!--Div contenant la scorecard-->
 <div id="scorecard">
-<h1 class="score">Scores :</h1>
+<h1 class="score">Score :</h1>
 
 <!--Div contenant le display des scores-->
 
 <div id="scoreDisplay">
-<span class="lePlayer" id="player1">Player 1</span>
-<span class="leScore" id="score1">0</span>
-<span class="leScore">-</span>
-<span class="leScore" id="score2">0</span>
-<span class="lePlayer" id="player2">Player 2</span>
+<span class="lePlayer leScore" id="score1" >Score :</span>
 </div>
 
 </div>
@@ -39,10 +36,10 @@
       
     <!--Div contenant la question et les 4 boutons de réponse-->
  <h1 id="question">What is John John Florence's first name?</h1>
- <div class="answerButton" id="answer1"><p class="answerText">John</p></div>
-<div class="answerButton" id="answer2"><p class="answerText">John John</p></div>
-<div class="answerButton" id="answer3"><p class="answerText">Florence</p></div>
-<div class="answerButton" id="answer4"><p class="answerText">He doesn't have one</p></div>
+ <div class="answerButton"><button id="buttonOne">John</button></div>
+<div class="answerButton"><button id="buttonTwo">John John</button></div>
+<div class="answerButton"><button id="buttonThree">Florence</button></div>
+<div class="answerButton"><button id="buttonFour" >He doesn't have one</button></div>
 </div>
 
 
@@ -88,7 +85,7 @@
 }
 
 #startButton:hover{
-color:	rgb(230,230,250);
+color:	#FFF1B6;
 }
 
 </style>

@@ -46,9 +46,25 @@ function stopVideo() {
   player.stopVideo();
 }
 ////////////////////////////////////////////////////////////////////////
+  
+  var actualScore=0;
+  var questions = [
+    'What is John John Florence’s first name?',
+    'How many times has John John won the world title?',
+    'what is your favorite food?',
+    'Cloud Nine is a gnarly break. Where is it?',
+    ];
+  var answers = [
+    ['John',  'John John',  'Florence',  'He doesn’t have one'],
+    ['1',  '2',  '3',  '4'],
+    ['Ramen',  'Burgers',  'Pizza',  'Tacos'],
+    ['Philippines',  'Bali',  'France',  'Hawaii'],
+    ];
+    var correctAnswers = [1,1,2,0];
+    var gameAnswers = [];
+    var myTimer=0;
 
-//on initialise le timer
-var myTimer = 0;
+//On fait un timer indépendant qui démarre dès que l'utilisateur clique sur Start Game
 
 function timer(){
   myTimer +=1
@@ -56,16 +72,25 @@ function timer(){
   lancerQuestions(); //on appelle la fonction qui va lancer les questions
 }
 
+
+
+
+
 //fonction qui permet de commencer le jeu après avoir appuyé sur le bouton Start Game
 //cette fonction démarre aussi un timer qui nous servira de fil conducteur tout le long du jeu
-function startGame() {
+function startGame(){
   console.log("le joueur a cliqué sur le boutton Start Game!")
   document.getElementById("overlay").style.display = "none";
   YTplayer.playVideo();
   console.log("le jeu a démarré")
+  //$('#score1').html(self.actualScore);
+  console.log("le jeu a démarré")
   timer();
   setInterval(timer,1000);//On appelle le timer toutes les secondes
 }
+
+
+
 
 //fonction pour lancer les questions
 function lancerQuestions(){

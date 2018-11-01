@@ -1,3 +1,4 @@
+  //fonction pour faire apparaitre/disparaitre les questions
 function slideUp(el) {
     var elem = document.getElementById(el);
     //elem.style.transition = "all 1s ease-out";
@@ -33,6 +34,8 @@ function lancerTimer(){
     }
   }, 1000);
   }
+
+
   
 
 
