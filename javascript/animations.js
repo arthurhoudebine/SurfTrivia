@@ -18,22 +18,27 @@ $('button').click(function() {
     slideUp('questionId');
   })
 
+  var countdownInt;
   //fonction qui lance le timer
-function lancerTimer(){
+function lancerTimeQuestion(){
   var countdownNumberEl = document.getElementById('countdown-number');
   var countdown = 10;
   
   countdownNumberEl.textContent = countdown;
   
-  var countdownInt = setInterval(function() {
+  countdownInt = setInterval(function() {
     countdown--;
     countdownNumberEl.textContent = countdown;
-    if (countdown === 0) {
-      clearInterval(countdownInt);
-      slideDown('questionId');
-    }
+    // if (countdown === 0) {
+    //   clearInterval(countdownInt);
+    //   // slideDown('questionId');
+    // }
   }, 1000);
   }
+
+  function stopTimeQuestion(){
+        clearInterval(countdownInt);
+    }
 
 
   

@@ -63,6 +63,7 @@ function stopVideo() {
     var correctAnswers = [1,1,2,0];
     var gameAnswers = [];
     var myTimer=0;
+    var questionPosee=0;
 
 //On fait un timer indépendant qui démarre dès que l'utilisateur clique sur Start Game
 
@@ -82,9 +83,8 @@ function startGame(){
   console.log("le joueur a cliqué sur le boutton Start Game!")
   document.getElementById("overlay").style.display = "none";
   YTplayer.playVideo();
-  console.log("le jeu a démarré")
-  //$('#score1').html(self.actualScore);
-  console.log("le jeu a démarré")
+  console.log("le jeu a démarré");
+  $('#score1').html(actualScore);
   timer();
   setInterval(timer,1000);//On appelle le timer toutes les secondes
 }
@@ -95,11 +95,45 @@ function startGame(){
 //fonction pour lancer les questions
 function lancerQuestions(){
   switch (myTimer) {
-    case 5:
+    case 2:
     console.log("lancer la première question");
     slideUp('questionId');
-    lancerTimer();
+    lancerTimeQuestion();
+
+    //cas lorsque l'utilisateur clique sur un boutton de réponse
+    $( ".answerButton" ).click(function(event) {
+      var answerClicked = event.target.getAttribute('id');
+      var answerGiven = Number(event.target.getAttribute('data-index'));
+      var actualCorrectAnswer = correctAnswers[0];//TODO: 0 a remplacer par la question ID
+     
+      switch(answerGiven){
+      //si la réponse donnée est la bonne  
+      case actualCorrectAnswer:
+      $('#' + answerClicked).css( "background-color","#99ffdd");
+      //on actualise le score
+      actualScore++;
+      $('#score1').html(actualScore);
+      //on change la couleur du bouton de la réponse en vert
+      $('#question').html('YASS. Correct answer!');
+      $('#question').css("color","#99ffdd");
+      //on arrête le timer
+      stopTimeQuestion();
+      //on slidedown la question
+      // setTimeout(slideDown('questionId', 10000));
       break;
+
+      //sinon, on met le bouton en rouge
+      default:
+      $('#' + answerClicked).css( "background-color","#ff6666");
+      $('#question').html('Lame. Wrong answer!');
+      $('#question').css("color","#ff6666");
+      stopTimeQuestion();
+      // setTimeout(slideDown('questionId', 3000));
+      }
+    });
+      break;
+
+
     case 15:  
     case 25:
     console.log("lancer la deuxième question");

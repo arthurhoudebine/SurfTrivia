@@ -98,21 +98,6 @@ body {
     font-weight:bold;
     cursor: pointer;
     line-height: 50px;
-
-    
-    /* font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
-    margin-left:20px;
-    color:white;
-    font-size: 20px;
-    font-weight:normal;
-    margin: 0 auto;
-    padding: 0;
-    line-height: 50px;
-    text-align: left;
-    font-weight:bold;
-    cursor: pointer;
-    /* background:none;
-    border:none; */
 }
 
 .answerButton button:hover {
@@ -154,14 +139,14 @@ body {
     animation: countdown 1s linear infinite forwards;
   }
   
-  @keyframes countdown {
+  /* @keyframes countdown {
     from {
       stroke-dashoffset: 0px;
     }
     to {
       stroke-dashoffset: 113px;
     }
-  }
+  } */
 
 
 
