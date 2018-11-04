@@ -89,54 +89,75 @@ function startGame(){
   setInterval(timer,1000);//On appelle le timer toutes les secondes
 }
 
+//fonction pour remplir la question et la réponse
+function fillQuestion(x){
+  if (x>0){
+  $('#question').html(questions[x-1]);
+  $('#buttonOne').html(answers[x-1][0]);
+  $('#buttonTwo').html(answers[x-1][1]);
+  $('#buttonThree').html(answers[x-1][2]);
+  $('#buttonFour').html(answers[x-1][3]);
+}
+else {console.log("la question na pas été chargée")}
+}
 
+//fonction pour afficher une question, les réponses, et gérer la carte
+function fireQuestion(y){
+//on charge la question, et on l'affiche
+fillQuestion(y);
+slideUp('questionId');
+lancerTimeQuestion();
+//cas lorsque l'utilisateur clique sur un boutton de réponse
+$( ".answerButton" ).click(function(event) {
+  var answerClicked = event.target.getAttribute('id');
+  var answerGiven = Number(event.target.getAttribute('data-index'));
+  var actualCorrectAnswer = correctAnswers[y-1];//TODO: 0 a remplacer par la question ID
+ 
+  switch(answerGiven){
+  //si la réponse donnée est la bonne  
+  case actualCorrectAnswer:
+  $('#' + answerClicked).css( "background-color","#99ffdd");
+  //on actualise le score
+  actualScore++;
+  $('#score1').html(actualScore);
+  //on change la couleur du bouton de la réponse en vert
+  $('#question').html('YASS. Correct answer!');
+  $('#question').css("color","#99ffdd");
+  //on arrête le timer
+  stopTimeQuestion();
+  //on désactive le click sur tous les boutons pour empécher une autre sélection
+  $('#buttonOne').prop("disabled",true);
+  $('#buttonTwo').prop("disabled",true);
+  $('#buttonThree').prop("disabled",true);
+  $('#buttonFour').prop("disabled",true);
+  //on slidedown la question
+  slideDown('questionId');
+  break;
+
+  //sinon, on met le bouton en rouge
+  default:
+  $('#' + answerClicked).css( "background-color","#ff6666");
+  $('#buttonOne').prop("disabled",true);
+  $('#buttonTwo').prop("disabled",true);
+  $('#buttonThree').prop("disabled",true);
+  $('#buttonFour').prop("disabled",true);
+  $('#question').html('Lame. Wrong answer!');
+  $('#question').css("color","#ff6666");
+  stopTimeQuestion();
+  }
+});
+
+}
 
 
 //fonction pour lancer les questions
 function lancerQuestions(){
   switch (myTimer) {
-    case 2:
-    console.log("lancer la première question");
-    slideUp('questionId');
-    lancerTimeQuestion();
-
-    //cas lorsque l'utilisateur clique sur un boutton de réponse
-    $( ".answerButton" ).click(function(event) {
-      var answerClicked = event.target.getAttribute('id');
-      var answerGiven = Number(event.target.getAttribute('data-index'));
-      var actualCorrectAnswer = correctAnswers[0];//TODO: 0 a remplacer par la question ID
-     
-      switch(answerGiven){
-      //si la réponse donnée est la bonne  
-      case actualCorrectAnswer:
-      $('#' + answerClicked).css( "background-color","#99ffdd");
-      //on actualise le score
-      actualScore++;
-      $('#score1').html(actualScore);
-      //on change la couleur du bouton de la réponse en vert
-      $('#question').html('YASS. Correct answer!');
-      $('#question').css("color","#99ffdd");
-      //on arrête le timer
-      stopTimeQuestion();
-      //on slidedown la question
-      // setTimeout(slideDown('questionId', 10000));
+    case 2:fireQuestion(1);
       break;
-
-      //sinon, on met le bouton en rouge
-      default:
-      $('#' + answerClicked).css( "background-color","#ff6666");
-      $('#question').html('Lame. Wrong answer!');
-      $('#question').css("color","#ff6666");
-      stopTimeQuestion();
-      // setTimeout(slideDown('questionId', 3000));
-      }
-    });
+    case 10:fireQuestion(2);  
       break;
-
-
-    case 15:  
-    case 25:
-    console.log("lancer la deuxième question");
+    case 15:fireQuestion(3);
       break;
     default:
     console.log("on continue");

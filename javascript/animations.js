@@ -5,10 +5,15 @@ function slideUp(el) {
     elem.style.height = "500px";
   }
   function slideDown(el) {
-    var elem = document.getElementById(el);
-    elem.style.transition = "all 2s ease-in";
-    elem.style.height = "0px";
+    // var elem = document.getElementById(el);
+  //  elem.style.transition = "all 2s ease-in";
+  //   elem.style.height = "0px";
+  $('#' + el).addClass('hide');
+      setTimeout( function(){
+        $('#' + el).remove()
+      },2000);;   
   }
+
 
 
   //fonction pour connaitre le timing de la vidéo et slide up la question
