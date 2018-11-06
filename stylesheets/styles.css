@@ -129,7 +129,7 @@ body {
     transform: rotateY(-180deg) rotateZ(-90deg);
   }
   
-  svg circle {
+  #svgcircle {
     stroke-dasharray: 113px;
     stroke-dashoffset: 0px;
     stroke-linecap: round;

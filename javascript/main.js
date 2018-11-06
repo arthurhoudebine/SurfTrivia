@@ -101,6 +101,30 @@ function fillQuestion(x){
 else {console.log("la question na pas été chargée")}
 }
 
+//fonction pour remettre le style de la question/boutons à zéro
+
+function reinitStyleQuestion(){
+  $('#buttonOne').prop("disabled",false);
+  $('#buttonTwo').prop("disabled",false);
+  $('#buttonThree').prop("disabled",false);
+  $('#buttonFour').prop("disabled",false);
+  $('#question').css("color","#ff6666");
+  $(".answerButton button").css( "background-color","#FFB6C4");
+  //$('#' + z).css( "background-color","#FFB6C4");
+  $('#svgcircle').css("stroke","#FFB6C4");
+  }
+  
+  //fonction pour disable les boutons
+  
+  function disableButtons(){
+    $('#buttonOne').prop("disabled",true);
+    $('#buttonTwo').prop("disabled",true);
+    $('#buttonThree').prop("disabled",true);
+    $('#buttonFour').prop("disabled",true);
+  }
+  
+  
+
 //fonction pour afficher une question, les réponses, et gérer la carte
 function fireQuestion(y){
 //on charge la question, et on l'affiche
@@ -126,24 +150,21 @@ $( ".answerButton" ).click(function(event) {
   //on arrête le timer
   stopTimeQuestion();
   //on désactive le click sur tous les boutons pour empécher une autre sélection
-  $('#buttonOne').prop("disabled",true);
-  $('#buttonTwo').prop("disabled",true);
-  $('#buttonThree').prop("disabled",true);
-  $('#buttonFour').prop("disabled",true);
+  disableButtons();
   //on slidedown la question
-  slideDown('questionId');
+  setTimeout(function(){slideDown('questionId');},3000);
+  reinitStyleQuestion();
   break;
 
   //sinon, on met le bouton en rouge
   default:
   $('#' + answerClicked).css( "background-color","#ff6666");
-  $('#buttonOne').prop("disabled",true);
-  $('#buttonTwo').prop("disabled",true);
-  $('#buttonThree').prop("disabled",true);
-  $('#buttonFour').prop("disabled",true);
   $('#question').html('Lame. Wrong answer!');
   $('#question').css("color","#ff6666");
   stopTimeQuestion();
+  disableButtons();
+  //slideDown('questionId');
+  reinitStyleQuestion(answerclicked);
   }
 });
 
@@ -153,11 +174,11 @@ $( ".answerButton" ).click(function(event) {
 //fonction pour lancer les questions
 function lancerQuestions(){
   switch (myTimer) {
-    case 2:fireQuestion(1);
+    case 5:fireQuestion(1);
       break;
-    case 10:fireQuestion(2);  
+    case 25:fireQuestion(2);  
       break;
-    case 15:fireQuestion(3);
+    case 50:fireQuestion(3);
       break;
     default:
     console.log("on continue");
