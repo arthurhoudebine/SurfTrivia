@@ -74,14 +74,11 @@ function timer(){
 }
 
 
-
-
-
 //fonction qui permet de commencer le jeu après avoir appuyé sur le bouton Start Game
 //cette fonction démarre aussi un timer qui nous servira de fil conducteur tout le long du jeu
 function startGame(){
   console.log("le joueur a cliqué sur le boutton Start Game!")
-  document.getElementById("overlay").style.display = "none";
+  document.getElementById("overlayStart").style.display = "none";
   YTplayer.playVideo();
   console.log("le jeu a démarré");
   $('#score1').html(actualScore);
@@ -102,20 +99,24 @@ else {console.log("la question na pas été chargée")}
 }
 
 //fonction pour remettre le style de la question/boutons à zéro
-
 function reinitStyleQuestion(){
   $('#buttonOne').prop("disabled",false);
   $('#buttonTwo').prop("disabled",false);
   $('#buttonThree').prop("disabled",false);
   $('#buttonFour').prop("disabled",false);
-  $('#question').css("color","#ff6666");
+  $('#question').css("color","white");
   $(".answerButton button").css( "background-color","#FFB6C4");
-  //$('#' + z).css( "background-color","#FFB6C4");
+  $(".answerButton button").hover(function(){
+    $(this).css("background-color", "#FFF1B6");
+    }, function(){
+    $(this).css("background-color", "#FFB6C4");
+});
   $('#svgcircle').css("stroke","#FFB6C4");
+  $('#countdown-number').css("color","white");
+
   }
   
   //fonction pour disable les boutons
-  
   function disableButtons(){
     $('#buttonOne').prop("disabled",true);
     $('#buttonTwo').prop("disabled",true);
@@ -127,6 +128,8 @@ function reinitStyleQuestion(){
 
 //fonction pour afficher une question, les réponses, et gérer la carte
 function fireQuestion(y){
+ //on réintialise le css de la question
+ reinitStyleQuestion(); 
 //on charge la question, et on l'affiche
 fillQuestion(y);
 slideUp('questionId');
@@ -135,15 +138,15 @@ lancerTimeQuestion();
 $( ".answerButton" ).click(function(event) {
   var answerClicked = event.target.getAttribute('id');
   var answerGiven = Number(event.target.getAttribute('data-index'));
-  var actualCorrectAnswer = correctAnswers[y-1];//TODO: 0 a remplacer par la question ID
+  var actualCorrectAnswer = correctAnswers[y-1];
  
   switch(answerGiven){
   //si la réponse donnée est la bonne  
   case actualCorrectAnswer:
   $('#' + answerClicked).css( "background-color","#99ffdd");
   //on actualise le score
-  actualScore++;
-  $('#score1').html(actualScore);
+  actualScore = actualScore+1;
+  $('#score1').html(actualScore +"/4");
   //on change la couleur du bouton de la réponse en vert
   $('#question').html('YASS. Correct answer!');
   $('#question').css("color","#99ffdd");
@@ -153,7 +156,6 @@ $( ".answerButton" ).click(function(event) {
   disableButtons();
   //on slidedown la question
   setTimeout(function(){slideDown('questionId');},3000);
-  reinitStyleQuestion();
   break;
 
   //sinon, on met le bouton en rouge
@@ -163,10 +165,31 @@ $( ".answerButton" ).click(function(event) {
   $('#question').css("color","#ff6666");
   stopTimeQuestion();
   disableButtons();
-  //slideDown('questionId');
-  reinitStyleQuestion(answerclicked);
+  setTimeout(function(){slideDown('questionId');},3000);
   }
 });
+
+}
+//Fonction qui annonce la fin du jeu: Final Score, 
+function finDuGame(){
+  switch (actualScore){
+    case 0:
+    case 1:
+    $('#finalCom').html("You suck so much...");
+    break;
+    case 2:
+    case 3:
+    $('#finalCom').html("Not bad! You will do better next time");
+    break;
+    case 4:
+    case 5:
+    $('#finalCom').html("Perfect! Damn, you are so smart.");
+    break;
+  }
+console.log("Fin Du jeu!");
+YTplayer.stopVideo();
+document.getElementById("overlayEnd").style.display = "block";
+$('#finalScore').html(actualScore+"/4");
 
 }
 
@@ -180,8 +203,13 @@ function lancerQuestions(){
       break;
     case 50:fireQuestion(3);
       break;
+    case 70:fireQuestion(4);
+      break;
+    case 90:finDuGame();
+      break; 
     default:
     console.log("on continue");
+    console.log(actualScore)
   }
 }
 

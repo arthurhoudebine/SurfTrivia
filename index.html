@@ -52,7 +52,7 @@
 
 <!--Bouton Start en overlay au début-->
 <style>
-#overlay {
+#overlayStart {
     position: fixed;
     display: block;
     width: 100%;
@@ -64,8 +64,9 @@
     background-color:#FFB6C4;
     z-index: 2;
     cursor: pointer;
-
 }
+
+
 
 #startButton{
     position: absolute;
@@ -90,8 +91,16 @@ color:	#FFF1B6;
 
 </style>
 
-<div id="overlay" onclick="startGame()">
+<div id="overlayStart" onclick="startGame()">
   <a id="startButton">Start<br>Game.</a>
+</div>
+
+<div id="overlayEnd" >
+  <a>This is the end!<br></a>
+  <a>Your final score is :<br></a>
+  <a class="comFin" id="finalScore">xx<br></a>
+  <a><br>About your performance :<br></a>
+  <a class="comFin" id="finalCom">Damn, you so smart.</a>
 </div>
 
 </html>

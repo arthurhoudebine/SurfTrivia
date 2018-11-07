@@ -24,7 +24,7 @@ $('button').click(function() {
   //fonction qui lance le timer
 function lancerTimeQuestion(){
   var countdownNumberEl = document.getElementById('countdown-number');
-  var countdown = 3;
+  var countdown = 10;
   
   countdownNumberEl.textContent = countdown;
   
@@ -32,6 +32,10 @@ function lancerTimeQuestion(){
     countdown--;
     console.log("countdown="+countdown);
     countdownNumberEl.textContent = countdown;
+    if (countdown === 3) {
+      $('#countdown-number').css("color","#ff6666");
+      $('#svgcircle').css("stroke","#ff6666");
+      }
     if (countdown === 0) {
     clearInterval(countdownInt);
     $('#question').html('BE QUICKER! Time has elapsed!');
