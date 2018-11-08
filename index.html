@@ -2,108 +2,100 @@
 <html>
   <head>
     <title>Surf Trivia</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/styles.css" />
     <link rel="icon" href="favicon.ico" />
   </head>
 
   <body>
+    <button>Get Time</button>
+    <!-- Div contenant le player youtube -->
+    <div id="YTplayer"></div>
 
-<button>Get Time</button>
-    <!--Div contenant le player youtube-->
-<div id="YTplayer"></div>
+    <!-- Div contenant la scorecard -->
+    <div id="scorecard">
+      <h1 class="score">Score :</h1>
 
-<!--Div contenant la scorecard-->
-<div id="scorecard">
-<h1 class="score">Score :</h1>
+      <!-- Div contenant le display des scores -->
 
-<!--Div contenant le display des scores-->
+      <div id="scoreDisplay">
+        <span class="lePlayer leScore" id="score1">Score :</span>
+      </div>
+    </div>
 
-<div id="scoreDisplay">
-<span class="lePlayer leScore" id="score1" >Score :</span>
-</div>
-
-</div>
-
-<!--Div contenant la question card-->
-<div class = "questionCard" id="questionId">
-    <!--Div contenant le timer-->
+    <!-- Div contenant la question card -->
+    <div class="questionCard" id="questionId">
+      <!-- Div contenant le timer -->
       <div id="countdown">
         <div id="countdown-number"></div>
-        <svg>
-          <circle id="svgcircle" r="18" cx="20" cy="20"></circle>
-        </svg>
+        <svg><circle id="svgcircle" r="18" cx="20" cy="20"></circle></svg>
       </div>
-      
-    <!--Div contenant la question et les 4 boutons de réponse-->
- <h1 id="question">What is John John Florence's first name?</h1>
- <div class="answerButton"><button id="buttonOne" data-index="0">John</button></div>
-<div class="answerButton"><button id="buttonTwo" data-index="1" >John John</button></div>
-<div class="answerButton"><button id="buttonThree" data-index="2">Florence</button></div>
-<div class="answerButton"><button id="buttonFour" data-index="3" >He doesn't have one</button></div>
-</div>
 
+      <!-- Div contenant la question et les 4 boutons de réponse -->
+      <h1 id="question">What is John John Florence's first name?</h1>
+      <div class="answerButton">
+        <button id="buttonOne" data-index="0">John</button>
+      </div>
+      <div class="answerButton">
+        <button id="buttonTwo" data-index="1">John John</button>
+      </div>
+      <div class="answerButton">
+        <button id="buttonThree" data-index="2">Florence</button>
+      </div>
+      <div class="answerButton">
+        <button id="buttonFour" data-index="3">He doesn't have one</button>
+      </div>
+    </div>
 
-<script src="javascript/jquery.js"></script>
-<script src="javascript/main.js"></script>
-<script src="javascript/animations.js"></script>
-</body>
+    <script src="javascript/jquery.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/animations.js"></script>
+  </body>
 
+  <!-- Bouton Start en overlay au début -->
+  <style>
+    #overlayStart {
+      position: fixed;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ffb6c4;
+      z-index: 2;
+      cursor: pointer;
+    }
 
+    #startButton {
+      position: absolute;
+      border-radius: 25px;
+      bottom: 0%;
+      left: 0%;
+      font-size: 200px;
+      color: #131e6e;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-weight: bolder;
+      text-align: left;
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-bottom: 30px;
+      line-height: 80%;
+    }
 
-<!--Bouton Start en overlay au début-->
-<style>
-#overlayStart {
-    position: fixed;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color:#FFB6C4;
-    z-index: 2;
-    cursor: pointer;
-}
+    #startButton:hover {
+      color: #fff1b6;
+    }
+  </style>
 
+  <div id="overlayStart" onclick="startGame()">
+    <a id="startButton">Start<br />Game.</a>
+  </div>
 
-
-#startButton{
-    position: absolute;
-    border-radius:25px;
-    bottom:0%;
-    left: 0%;
-    font-size: 200px;
-    color: #131E6E;
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
-    font-weight:bolder;
-    text-align:left;
-    margin-left:30px;
-    margin-right:30px;
-    margin-bottom:30px;
-    line-height: 80%;
-
-}
-
-#startButton:hover{
-color:	#FFF1B6;
-}
-
-</style>
-
-<div id="overlayStart" onclick="startGame()">
-  <a id="startButton">Start<br>Game.</a>
-</div>
-
-<div id="overlayEnd" >
-  <a>This is the end!<br></a>
-  <a>Your final score is :<br></a>
-  <a class="comFin" id="finalScore">xx<br></a>
-  <a><br>About your performance :<br></a>
-  <a class="comFin" id="finalCom">Damn, you so smart.</a>
-</div>
-
+  <div id="overlayEnd">
+    <a>This is the end!<br /></a> <a>Your final score is :<br /></a>
+    <a class="comFin" id="finalScore">xx<br /></a>
+    <a><br />About your performance :<br /></a>
+    <a class="comFin" id="finalCom">Damn, you so smart.</a>
+  </div>
 </html>
-
-
-
