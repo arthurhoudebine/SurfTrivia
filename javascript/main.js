@@ -218,13 +218,13 @@ function lancerQuestions() {
     case 25:
       fireQuestion(2);
       break;
-    case 50:
+    case 40:
       fireQuestion(3);
       break;
-    case 70:
+    case 55:
       fireQuestion(4);
       break;
-    case 90:
+    case 70:
       finDuGame();
       break;
     default:
